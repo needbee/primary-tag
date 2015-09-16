@@ -1,0 +1,27 @@
+{
+	"name": "primary-tag",
+	"description": "Allows one tag to be chosen as primary.",
+	"version": "0.0.1",
+	"type": "wordpress-plugin",
+	"keywords": [],
+	"homepage": "https://github.com/needbee/primary-tag",
+	"license": "GPLv2.0+",
+	"authors": [
+		{
+			"name": "Josh Justice",
+			"email": "josh@need-bee.com",
+		"homepage": "http://need-bee.com",
+			"role": "Developer"
+		}
+	],
+    "minimum-stability": "dev",
+	"require": {
+		"php": ">=5.4"
+	},
+    "require-dev": {
+	    "antecedent/patchwork": "1.2.*",
+        "phpunit/phpunit"     : "*@stable",
+	    "brianium/paratest"   : "dev-master",
+        "10up/wp_mock"        : "dev-master"
+    }
+}
