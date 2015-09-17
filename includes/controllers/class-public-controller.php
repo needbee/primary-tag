@@ -1,11 +1,19 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
+use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
+
 class PublicController
 {
 
+    protected $primaryTagRepo;
+
+    public function __construct( PrimaryTagRepository $primaryTagRepo ) {
+        $this->primaryTagRepo = $primaryTagRepo;
+    }
+
     public function render_primary_tag( $content ) {
         if( is_single() ) {
-            $primary_tag = get_post_meta( get_the_ID(), 'primary_tag', true );
+            $primary_tag = $this->primaryTagRepo->getForPost( get_the_ID() );
 
             ob_start();
             include plugin_dir_path( __FILE__ ) . '../partials/public/primary-tag.php';

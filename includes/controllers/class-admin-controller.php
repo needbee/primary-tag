@@ -1,11 +1,19 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
+use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
+
 /**
  *
  * @see https://codex.wordpress.org/Function_Reference/add_meta_box
  */
 class AdminController
 {
+
+    protected $primaryTagRepo;
+
+    public function __construct( PrimaryTagRepository $primaryTagRepo ) {
+        $this->primaryTagRepo = $primaryTagRepo;
+    }
 
     public function test() {
         echo '<div>Hello Primary Tag Admin!</div>';
@@ -26,7 +34,7 @@ class AdminController
         wp_nonce_field( 'save_primary_tag', 'primary_tag_meta_box_nonce' );
 
         $tags = wp_get_post_tags( $post->ID );
-        $primary_tag = get_post_meta( $post->ID, 'primary_tag', true );
+        $primary_tag = $this->primaryTagRepo->getForPost( $post->ID );
 
         include plugin_dir_path( __FILE__ ) . '../partials/admin/meta-box.php';
     }
@@ -78,11 +86,7 @@ class AdminController
         $primary_tag = sanitize_text_field( $_POST['primary_tag'] );
 
         // Update the meta field in the database.
-        if( '' === $primary_tag ) {
-            delete_post_meta( $post_id, 'primary_tag' );
-        } else {
-            update_post_meta( $post_id, 'primary_tag', $primary_tag );
-        }
+        $this->primaryTagRepo->saveForPost( $post_id, $primary_tag );
     }
 
 }
