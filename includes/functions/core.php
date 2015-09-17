@@ -45,9 +45,9 @@ function i18n() {
  * @return void
  */
 function init() {
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'class-primary-tag-plugin.php';
-    $plugin = new \PrimaryTagPlugin;
-    $plugin->init();
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'class-loader.php';
+    $loader = new \NeedBee\PrimaryTag\Loader;
+    $loader->init();
 
     do_action( 'primarytag_init' );
 }

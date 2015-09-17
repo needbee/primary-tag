@@ -1,6 +1,6 @@
-<?php
+<?php namespace NeedBee\PrimaryTag\Controllers;
 
-class PrimaryTagPublicController
+class PublicController
 {
 
     public function test( $content ) {

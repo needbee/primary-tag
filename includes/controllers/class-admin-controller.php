@@ -1,6 +1,6 @@
-<?php
+<?php namespace NeedBee\PrimaryTag\Controllers;
 
-class PrimaryTagAdminController
+class AdminController
 {
 
     public function test() {
