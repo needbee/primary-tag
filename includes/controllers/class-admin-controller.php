@@ -18,7 +18,8 @@ class AdminController
         );
     }
 
-    public function render_meta_box() {
+    public function render_meta_box( $post ) {
+        $tags = wp_get_post_tags( $post->ID );
         include plugin_dir_path( __FILE__ ) . '../partials/admin/meta-box.php';
     }
 
