@@ -5,6 +5,8 @@ class PublicController
 
     public function render_primary_tag( $content ) {
         if( is_single() ) {
+            $primary_tag = get_post_meta( get_the_ID(), 'primary_tag', true );
+
             ob_start();
             include plugin_dir_path( __FILE__ ) . '../partials/public/primary-tag.php';
             $template = ob_get_contents();
