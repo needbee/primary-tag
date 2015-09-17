@@ -1,8 +1,8 @@
 <div id="primary-tag">
-    <select>
+    <select name="primary_tag">
         <option>(none)</option>
         <?php foreach( $tags as $tag ): ?>
-            <option><?php echo $tag->name ?></option>
+            <option value="<?php echo $tag->name ?>" <?php if( $tag->name == $primary_tag ) { echo 'selected'; } ?>><?php echo $tag->name ?></option>
         <?php endforeach ?>
     </select>
 </div><!-- #primary-tag -->

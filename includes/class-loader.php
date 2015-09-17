@@ -27,6 +27,7 @@ class Loader
     {
         $admin = new AdminController;
         add_filter( 'add_meta_boxes', array($admin, 'add_meta_box') );
+        add_filter( 'save_post', array($admin, 'save_primary_tag') );
     }
 
     private function define_public_hooks()
