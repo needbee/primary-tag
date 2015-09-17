@@ -19,7 +19,7 @@ class AdminController
     }
 
     public function render_meta_box() {
-        echo '<div>Hello Primary Tag Admin!</div>';
+        include plugin_dir_path( __FILE__ ) . '../partials/admin/meta-box.php';
     }
 
 }

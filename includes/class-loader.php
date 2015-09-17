@@ -32,7 +32,7 @@ class Loader
     private function define_public_hooks()
     {
         $public = new PublicController;
-        add_filter( 'the_content', array($public, 'test') );
+        add_filter( 'the_content', array($public, 'render_primary_tag') );
     }
 
 }
