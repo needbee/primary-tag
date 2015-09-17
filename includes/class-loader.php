@@ -26,7 +26,7 @@ class Loader
     private function define_admin_hooks()
     {
         $admin = new AdminController;
-        add_filter( 'dbx_post_sidebar', array($admin, 'test') );
+        add_filter( 'add_meta_boxes', array($admin, 'add_meta_box') );
     }
 
     private function define_public_hooks()
