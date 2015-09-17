@@ -75,10 +75,14 @@ class AdminController
         }
 
         // Sanitize user input.
-        $my_data = sanitize_text_field( $_POST['primary_tag'] );
+        $primary_tag = sanitize_text_field( $_POST['primary_tag'] );
 
         // Update the meta field in the database.
-        update_post_meta( $post_id, 'primary_tag', $my_data );
+        if( '' === $primary_tag ) {
+            delete_post_meta( $post_id, 'primary_tag' );
+        } else {
+            update_post_meta( $post_id, 'primary_tag', $primary_tag );
+        }
     }
 
 }
