@@ -1,7 +1,5 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
-use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
-
 /**
  *
  * @see https://codex.wordpress.org/Function_Reference/add_meta_box

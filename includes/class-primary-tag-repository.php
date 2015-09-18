@@ -1,4 +1,4 @@
-<?php namespace NeedBee\PrimaryTag\Repositories;
+<?php namespace NeedBee\PrimaryTag;
 
 class PrimaryTagRepository {
 

@@ -2,7 +2,6 @@
 
 use NeedBee\PrimaryTag\Controllers\AdminController;
 use NeedBee\PrimaryTag\Controllers\PublicController;
-use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
 
 class Loader
 {
@@ -23,7 +22,7 @@ class Loader
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-base-controller.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-admin-controller.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-public-controller.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/repositories/class-primary-tag-repository.php';
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-primary-tag-repository.php';
     }
 
     private function define_admin_hooks()

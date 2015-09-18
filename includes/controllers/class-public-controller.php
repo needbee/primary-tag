@@ -1,7 +1,5 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
-use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
-
 class PublicController extends BaseController
 {
 
