@@ -6,14 +6,8 @@ use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
  *
  * @see https://codex.wordpress.org/Function_Reference/add_meta_box
  */
-class AdminController
+class AdminController extends BaseController
 {
-
-    protected $primaryTagRepo;
-
-    public function __construct( PrimaryTagRepository $primaryTagRepo ) {
-        $this->primaryTagRepo = $primaryTagRepo;
-    }
 
     public function test() {
         echo '<div>Hello Primary Tag Admin!</div>';

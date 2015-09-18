@@ -2,14 +2,8 @@
 
 use NeedBee\PrimaryTag\Repositories\PrimaryTagRepository;
 
-class PublicController
+class PublicController extends BaseController
 {
-
-    protected $primaryTagRepo;
-
-    public function __construct( PrimaryTagRepository $primaryTagRepo ) {
-        $this->primaryTagRepo = $primaryTagRepo;
-    }
 
     public function add_styles() {
         wp_enqueue_style( 'primary-tag', plugins_url() . '/primary-tag/assets/css/primary-tag.css' );

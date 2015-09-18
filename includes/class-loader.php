@@ -20,6 +20,7 @@ class Loader
 
     private function load_dependencies()
     {
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-base-controller.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-admin-controller.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/controllers/class-public-controller.php';
         require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/repositories/class-primary-tag-repository.php';
