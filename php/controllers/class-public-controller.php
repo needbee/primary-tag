@@ -9,13 +9,11 @@ class PublicController extends BaseController
 
     public function render_primary_tag( $content ) {
         if( is_single() ) {
-            $primary_tag = $this->primaryTagRepo->getForPost( get_the_ID() );
-
-            ob_start();
-            include plugin_dir_path( __FILE__ ) . '../../includes/partials/public/primary-tag.php';
-            $template = ob_get_contents();
+            $data = array(
+                'primary_tag' => $this->primaryTagRepo->getForPost( get_the_ID() ),
+            );
+            $template = $this->renderPartialToString( 'public/primary-tag', $data );
             $content = $template . $content;
-            ob_end_clean();
         }
         return $content;
     }

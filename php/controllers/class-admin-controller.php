@@ -25,10 +25,11 @@ class AdminController extends BaseController
     public function render_meta_box( $post ) {
         wp_nonce_field( 'save_primary_tag', 'primary_tag_meta_box_nonce' );
 
-        $tags = wp_get_post_tags( $post->ID );
-        $primary_tag = $this->primaryTagRepo->getForPost( $post->ID );
-
-        include plugin_dir_path( __FILE__ ) . '../../includes/partials/admin/meta-box.php';
+        $data = array(
+            'tags' => wp_get_post_tags( $post->ID ),
+            'primary_tag' => $this->primaryTagRepo->getForPost( $post->ID ),
+        );
+        $this->renderPartial( 'admin/meta-box', $data );
     }
 
     public function save_primary_tag( $post_id ) {
