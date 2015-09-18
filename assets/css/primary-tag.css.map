@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "primary-tag.css",
+	"sources": [
+		"sass/primary-tag.scss"
+	],
+	"sourcesContent": [],
+	"mappings": "AAAA;;;;;;GAMG;AACH,YAAY,CAAC;EAEX,MAAM,EAAE,KAAK,CAAC,GAAG,CAAC,OAAO;EACzB,UAAU,EAAE,OAAQ;EACpB,OAAO,EAAE,GAAG,CAAC,IAAI;EACjB,aAAa,EAAE,IAAK,GALR",
+	"names": []
+}

@@ -11,6 +11,10 @@ class PublicController
         $this->primaryTagRepo = $primaryTagRepo;
     }
 
+    public function add_styles() {
+        wp_enqueue_style( 'primary-tag', plugins_url() . '/primary-tag/assets/css/primary-tag.css' );
+    }
+
     public function render_primary_tag( $content ) {
         if( is_single() ) {
             $primary_tag = $this->primaryTagRepo->getForPost( get_the_ID() );

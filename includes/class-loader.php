@@ -35,6 +35,7 @@ class Loader
     private function define_public_hooks()
     {
         $public = new PublicController( new PrimaryTagRepository );
+        add_filter( 'wp_enqueue_scripts', array($public, 'add_styles') );
         add_filter( 'the_content', array($public, 'render_primary_tag') );
     }
 
