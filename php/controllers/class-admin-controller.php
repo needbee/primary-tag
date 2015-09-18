@@ -28,7 +28,7 @@ class AdminController extends BaseController
         $tags = wp_get_post_tags( $post->ID );
         $primary_tag = $this->primaryTagRepo->getForPost( $post->ID );
 
-        include plugin_dir_path( __FILE__ ) . '../partials/admin/meta-box.php';
+        include plugin_dir_path( __FILE__ ) . '../../includes/partials/admin/meta-box.php';
     }
 
     public function save_primary_tag( $post_id ) {

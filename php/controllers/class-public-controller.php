@@ -12,7 +12,7 @@ class PublicController extends BaseController
             $primary_tag = $this->primaryTagRepo->getForPost( get_the_ID() );
 
             ob_start();
-            include plugin_dir_path( __FILE__ ) . '../partials/public/primary-tag.php';
+            include plugin_dir_path( __FILE__ ) . '../../includes/partials/public/primary-tag.php';
             $template = ob_get_contents();
             $content = $template . $content;
             ob_end_clean();

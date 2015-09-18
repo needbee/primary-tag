@@ -46,7 +46,7 @@ function i18n() {
  */
 function init() {
     require_once plugin_dir_path( dirname( __FILE__ ) ) . 'functions/utils.php';
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'class-loader.php';
+    require_once plugin_dir_path( dirname(dirname( __FILE__ )) ) . 'php/class-loader.php';
     $loader = new \NeedBee\PrimaryTag\Loader;
     $loader->init();
 
