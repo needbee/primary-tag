@@ -56,7 +56,7 @@ class AdminController extends BaseController
         }
 
         // Check the user's permissions.
-        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        if ( ! current_user_can( 'edit_posts', $post_id ) ) {
             return;
         }
 
