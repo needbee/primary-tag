@@ -16,4 +16,6 @@
             </option>
         <?php endforeach ?>
     </select>
+
+    The primary tag will show at the top of the post page.
 </div><!-- #primary-tag -->
