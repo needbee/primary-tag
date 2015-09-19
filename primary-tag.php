@@ -48,8 +48,8 @@ require_once PRIMARYTAG_INC . 'functions/core.php';
 
 
 // Activation/Deactivation.
-register_activation_hook( __FILE__, '\TenUp\Primary_Tag\Core\activate' );
-register_deactivation_hook( __FILE__, '\TenUp\Primary_Tag\Core\deactivate' );
+register_activation_hook( __FILE__, '\NeedBee\Primary_Tag\Core\activate' );
+register_deactivation_hook( __FILE__, '\NeedBee\Primary_Tag\Core\deactivate' );
 
 // Bootstrap.
-TenUp\Primary_Tag\Core\setup();
+NeedBee\Primary_Tag\Core\setup();

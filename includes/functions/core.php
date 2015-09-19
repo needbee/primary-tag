@@ -1,5 +1,5 @@
 <?php
-namespace TenUp\Primary_Tag\Core;
+namespace NeedBee\Primary_Tag\Core;
 
 /**
  * Default setup routine
