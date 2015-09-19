@@ -1,11 +1,6 @@
-/**
- * Primary Tag
+/*! Primary Tag - v0.1.0
  * https://github.com/needbee/primary-tag
- *
- * Copyright (c) 2015 Josh Justice
- * Licensed under the GPLv2+ license.
- */
-
+ * Copyright (c) 2015; * Licensed GPLv2+ */
 ( function( window, undefined ) {
 	'use strict';
 

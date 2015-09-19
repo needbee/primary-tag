@@ -11,6 +11,14 @@ class AdminController extends BaseController
         echo '<div>Hello Primary Tag Admin!</div>';
     }
 
+    public function add_scripts() {
+        wp_enqueue_script( 'primary-tag',
+            plugin_dir_url( __FILE__ ) . '../../assets/js/primary-tag.min.js',
+            array(),
+            $this->version
+        );
+    }
+
     public function add_meta_box() {
         add_meta_box(
             'primary-tag-admin',

@@ -40,6 +40,7 @@ class Loader
     private function define_admin_hooks()
     {
         $admin = new AdminController( $this->version, new PrimaryTagRepository );
+        add_action( 'admin_enqueue_scripts', array( $admin, 'add_scripts' ) );
         add_action( 'add_meta_boxes', array($admin, 'add_meta_box') );
         add_action( 'save_post', array($admin, 'save_primary_tag') );
     }
