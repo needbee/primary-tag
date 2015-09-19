@@ -1,6 +1,6 @@
-<?php namespace NeedBee\PrimaryTag\Controllers;
+<?php namespace NeedBee\Primary_Tag\Controllers;
 
-use NeedBee\PrimaryTag\Primary_Tag_Repository;
+use NeedBee\Primary_Tag\Primary_Tag_Repository;
 
 class Base_Controller
 {

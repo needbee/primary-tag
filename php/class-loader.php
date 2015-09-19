@@ -1,7 +1,7 @@
-<?php namespace NeedBee\PrimaryTag;
+<?php namespace NeedBee\Primary_Tag;
 
-use NeedBee\PrimaryTag\Controllers\Admin_Controller;
-use NeedBee\PrimaryTag\Controllers\Public_Controller;
+use NeedBee\Primary_Tag\Controllers\Admin_Controller;
+use NeedBee\Primary_Tag\Controllers\Public_Controller;
 
 class Loader
 {

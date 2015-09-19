@@ -1,4 +1,4 @@
-<?php namespace NeedBee\PrimaryTag\Controllers;
+<?php namespace NeedBee\Primary_Tag\Controllers;
 
 class Public_Controller extends Base_Controller
 {
