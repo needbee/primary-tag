@@ -1,6 +1,6 @@
 <div id="primary-tag">
 	<select name="primary_tag">
-		<option value="">(none)</option>
+		<option value="">(<?php esc_html_e('none') ?>)</option>
 		<?php foreach ( $data['tags'] as $tag ) :  ?>
 		<?php
 		/*
@@ -25,5 +25,5 @@
 		<?php endforeach ?>
 	</select>
 
-	The primary tag will show at the top of the post page.
+	<?php esc_html_e('The primary tag will show at the top of the post page.') ?>
 </div><!-- #primary-tag -->
