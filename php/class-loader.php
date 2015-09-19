@@ -13,6 +13,9 @@ class Loader
 		$this->load_dependencies();
 	}
 
+	/**
+	 * @uses is_admin()
+	 */
 	public function init() {
 		if ( is_admin() ) {
 			$this->define_admin_hooks();
@@ -30,6 +33,9 @@ class Loader
 		));
 	}
 
+	/**
+	 * @uses plugin_dir_path()
+	 */
 	private function load_classes( array $classes ) {
 		foreach ( $classes as $class ) {
 			require_once plugin_dir_path( dirname( __FILE__ ) )
@@ -37,6 +43,10 @@ class Loader
 		}
 	}
 
+	/**
+	 * @uses add_action()
+	 * @uses add_filter()
+	 */
 	private function define_admin_hooks() {
 		$admin = new Admin_Controller( $this->version, new Primary_Tag_Repository );
 		add_action( 'admin_enqueue_scripts', array( $admin, 'add_scripts' ) );

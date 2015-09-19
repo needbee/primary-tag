@@ -3,6 +3,10 @@
 class Public_Controller extends Base_Controller
 {
 
+	/**
+	 * @uses plugin_dir_url()
+	 * @uses wp_enqueue_style()
+	 */
 	public function add_styles() {
 		wp_enqueue_style(
 			'primary-tag',
@@ -12,6 +16,9 @@ class Public_Controller extends Base_Controller
 		);
 	}
 
+	/**
+	 * @uses is_single()
+	 */
 	public function render_primary_tag( $content ) {
 		if ( is_single() ) {
 			$data = array(

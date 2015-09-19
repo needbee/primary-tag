@@ -14,6 +14,9 @@ class Base_Controller
 		$this->primary_tag_repo = $primary_tag_repo;
 	}
 
+	/**
+	 * @uses plugin_dir_path()
+	 */
 	protected function render_partial( $path, $data ) {
 		include plugin_dir_path( __FILE__ ) . '../../includes/partials/' . $path . '.php';
 	}

@@ -9,6 +9,9 @@ class Admin_Controller extends Base_Controller
 
 	const NONCE_KEY = 'primary_tag_meta_box_nonce';
 
+	/**
+	 * @uses wp_enqueue_script()
+	 */
 	public function add_scripts() {
 		wp_enqueue_script( 'primary-tag',
 			plugin_dir_url( __FILE__ ) . '../../assets/js/src/primary-tag.js',
@@ -17,6 +20,9 @@ class Admin_Controller extends Base_Controller
 		);
 	}
 
+	/**
+	 * @uses add_meta_box()
+	 */
 	public function add_meta_box() {
 		add_meta_box(
 			'primary-tag-admin',
@@ -28,6 +34,10 @@ class Admin_Controller extends Base_Controller
 		);
 	}
 
+	/**
+	 * @uses wp_get_post_tags()
+	 * @uses wp_nonce_field()
+	 */
 	public function render_meta_box( $post ) {
 		wp_nonce_field( 'save_primary_tag', self::NONCE_KEY );
 
@@ -38,6 +48,14 @@ class Admin_Controller extends Base_Controller
 		$this->render_partial( 'admin/meta-box', $data );
 	}
 
+	/**
+	 * @global $_POST the post data
+	 * @uses current_user_can()
+	 * @uses sanitize_text_field()
+	 * @uses wp_unslash()
+	 * @uses wp_verify_nonce()
+	 * @uses DOING_AUTOSAVE
+	 */
 	public function save_primary_tag( $post_id ) {
 		/*
 		 * Check if our nonce is set.
