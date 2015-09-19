@@ -1,5 +1,5 @@
 <?php if( $primary_tag ): ?>
-<div class="primary-tag">
+<div class="primary-tag-container">
     <span class="screen-reader-text">Primary Tag</span>
     <?php
     /*
@@ -10,7 +10,7 @@
      * contain HTML.
      */
     ?>
-    <a href="<?php echo site_url('tags/'+$primary_tag) ?>" class="primary-tag-link" rel="tag">
+    <a href="<?php echo site_url('tags/'.$primary_tag.'/') ?>" class="primary-tag" rel="tag">
     <?php echo sanitize_text_field($primary_tag) ?>
     </a>
 </div>
