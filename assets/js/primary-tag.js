@@ -19,7 +19,7 @@
       var tags = getTags();
       var option;
       for( var i in tags ) {
-        option = jQuery("<option />").attr("value", tags[i]).text(tags[i]);
+        option = jQuery('<option />').attr('value', tags[i]).text(tags[i]);
         if( currentTag == tags[i] ) {
           option.attr('selected',true);
         }
@@ -34,14 +34,21 @@
   }
 
   jQuery(function() {
+    // update the primary tag dropdown any time the tags change, either by:
+
+    // clicking the Add button
     jQuery('input.tagadd').click(updatePrimaryTagDropdownOnDelay);
 
+    // hitting return while in the add tag box
     jQuery('#new-tag-post_tag').keyup(function(evt) {
       if( evt.keyCode == 13 ) {
         updatePrimaryTagDropdownOnDelay();
       }
     });
+
     /*
+     * Clicking X to remove a tag.
+     *
      * For some reason, detecting clicks on '.ntdelbutton' children isn't
      * working (and not because they're dynamically added later). But since all
      * this does is refresh the tag list, it's not a big problem to do it for
