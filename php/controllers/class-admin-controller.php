@@ -52,7 +52,6 @@ class AdminController extends BaseController
 
         // If this is an autosave, our form has not been submitted, so we don't want to do anything.
         if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-            pt_write_log('c');
             return;
         }
 
@@ -76,7 +75,6 @@ class AdminController extends BaseController
 
         // Make sure that it is set.
         if ( ! isset( $_POST['primary_tag'] ) ) {
-            pt_write_log('f');
             return;
         }
 
