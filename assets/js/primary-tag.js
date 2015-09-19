@@ -8,12 +8,23 @@
     setTimeout( function() {
       var $select = jQuery('#primary-tag select');
       var currentTag = $select.val();
-      $select.empty();
+
+      // remove all tag options
+      $select.find('option:not(:first)').remove();
+
+      // in case the primary tag was removed, select '(none)' by default
+      $select.val('');
+
+      // add all current tags back in as options
       var tags = getTags();
+      var option;
       for( var i in tags ) {
-        jQuery("<option />").attr("value", tags[i]).text(tags[i]).appendTo($select);
+        option = jQuery("<option />").attr("value", tags[i]).text(tags[i]);
+        if( currentTag == tags[i] ) {
+          option.attr('selected',true);
+        }
+        option.appendTo($select);
       }
-      $select.val(currentTag);
     }, 100 );
   }
 
@@ -30,14 +41,15 @@
         updatePrimaryTagDropdownOnDelay();
       }
     });
-    /* not working yet
-    jQuery('#tagsdiv-post_tag').on('click','.ntdelbutton', function(evt) {
-      console.log('clicked delete');
-      // setTimeout( function() {
-      //   console.log( getTags() );
-      // }, 100 );
+    /*
+     * For some reason, detecting clicks on '.ntdelbutton' children isn't
+     * working (and not because they're dynamically added later). But since all
+     * this does is refresh the tag list, it's not a big problem to do it for
+     * _any_ click in the checklist area.
+     */
+    jQuery('.tagchecklist').on('click', function(evt) {
+      updatePrimaryTagDropdownOnDelay();
     });
-    */
   });
 
 } )( this );
