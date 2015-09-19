@@ -3,7 +3,7 @@
 use NeedBee\Primary_Tag\Controllers\Admin_Controller;
 use NeedBee\Primary_Tag\Controllers\Public_Controller;
 
-class Loader
+class Manager
 {
 
 	protected $version;
