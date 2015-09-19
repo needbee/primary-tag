@@ -1,4 +1,5 @@
 <?php
+namespace NeedBee\Primary_Tag\Utils;
 
 if ( ! function_exists( 'pt_write_log' ) ) {
 	function pt_write_log( $log ) {
