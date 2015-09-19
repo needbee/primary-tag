@@ -6,8 +6,11 @@ use NeedBee\PrimaryTag\Controllers\PublicController;
 class Loader
 {
 
+    protected $version;
+
     public function __construct()
     {
+        $this->version = '0.1.0';
         $this->load_dependencies();
     }
 
@@ -27,14 +30,14 @@ class Loader
 
     private function define_admin_hooks()
     {
-        $admin = new AdminController( new PrimaryTagRepository );
+        $admin = new AdminController( $this->version, new PrimaryTagRepository );
         add_filter( 'add_meta_boxes', array($admin, 'add_meta_box') );
         add_filter( 'save_post', array($admin, 'save_primary_tag') );
     }
 
     private function define_public_hooks()
     {
-        $public = new PublicController( new PrimaryTagRepository );
+        $public = new PublicController( $this->version, new PrimaryTagRepository );
         add_filter( 'wp_enqueue_scripts', array($public, 'add_styles') );
         add_filter( 'the_content', array($public, 'render_primary_tag') );
     }

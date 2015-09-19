@@ -5,9 +5,12 @@ use NeedBee\PrimaryTag\PrimaryTagRepository;
 class BaseController
 {
 
+    protected $version;
+
     protected $primaryTagRepo;
 
-    public function __construct( PrimaryTagRepository $primaryTagRepo ) {
+    public function __construct( $version, PrimaryTagRepository $primaryTagRepo ) {
+        $this->version = $version;
         $this->primaryTagRepo = $primaryTagRepo;
     }
 
