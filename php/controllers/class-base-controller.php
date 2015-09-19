@@ -1,30 +1,28 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
-use NeedBee\PrimaryTag\PrimaryTagRepository;
+use NeedBee\PrimaryTag\Primary_Tag_Repository;
 
-class BaseController
+class Base_Controller
 {
 
 	protected $version;
 
-	protected $primaryTagRepo;
+	protected $primary_tag_repo;
 
-	public function __construct( $version, PrimaryTagRepository $primaryTagRepo ) {
+	public function __construct( $version, Primary_Tag_Repository $primary_tag_repo ) {
 		$this->version = $version;
-		$this->primaryTagRepo = $primaryTagRepo;
+		$this->primary_tag_repo = $primary_tag_repo;
 	}
 
-	protected function renderPartial( $path, $data ) {
-		extract($data);
+	protected function render_partial( $path, $data ) {
 		include plugin_dir_path( __FILE__ ) . '../../includes/partials/' . $path . '.php';
 	}
 
-	protected function renderPartialToString( $path, $data ) {
+	protected function render_partial_to_string( $path, $data ) {
 		ob_start();
-		$this->renderPartial($path, $data);
+		$this->render_partial( $path, $data );
 		$template = ob_get_contents();
 		ob_end_clean();
 		return $template;
 	}
-
 }

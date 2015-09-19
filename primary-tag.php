@@ -9,6 +9,8 @@
  * License:     GPLv2+
  * Text Domain: primarytag
  * Domain Path: /languages
+ *
+ * @package  NeedBee\PrimaryTag
  */
 
 /**
@@ -35,19 +37,19 @@
  * https://github.com/10up/generator-wp-make
  */
 
-// Useful global constants
+// Useful global constants.
 define( 'PRIMARYTAG_VERSION', '0.1.0' );
 define( 'PRIMARYTAG_URL',     plugin_dir_url( __FILE__ ) );
 define( 'PRIMARYTAG_PATH',    dirname( __FILE__ ) . '/' );
 define( 'PRIMARYTAG_INC',     PRIMARYTAG_PATH . 'includes/' );
 
-// Include files
+// Include files.
 require_once PRIMARYTAG_INC . 'functions/core.php';
 
 
-// Activation/Deactivation
+// Activation/Deactivation.
 register_activation_hook( __FILE__, '\TenUp\Primary_Tag\Core\activate' );
 register_deactivation_hook( __FILE__, '\TenUp\Primary_Tag\Core\deactivate' );
 
-// Bootstrap
+// Bootstrap.
 TenUp\Primary_Tag\Core\setup();

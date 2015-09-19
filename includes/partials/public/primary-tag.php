@@ -1,4 +1,4 @@
-<?php if( $primary_tag ): ?>
+<?php if ( $data['primary_tag'] ) :  ?>
 <div class="primary-tag-container">
 	<span class="screen-reader-text">Primary Tag</span>
 	<?php
@@ -10,8 +10,8 @@
 	 * contain HTML.
 	 */
 	?>
-	<a href="<?php echo site_url('tags/'.$primary_tag.'/') ?>" class="primary-tag" rel="tag">
-	<?php echo sanitize_text_field($primary_tag) ?>
+	<a href="<?php echo esc_url( site_url( 'tags/'.$data['primary_tag'].'/' ) ) ?>" class="primary-tag" rel="tag">
+	<?php echo esc_html( $data['primary_tag'] ) ?>
 	</a>
 </div>
 <?php endif ?>

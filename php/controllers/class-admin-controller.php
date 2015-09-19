@@ -4,7 +4,7 @@
  *
  * @see https://codex.wordpress.org/Function_Reference/add_meta_box
  */
-class AdminController extends BaseController
+class Admin_Controller extends Base_Controller
 {
 
 	const NONCE_KEY = 'primary_tag_meta_box_nonce';
@@ -37,16 +37,20 @@ class AdminController extends BaseController
 
 		$data = array(
 			'tags' => wp_get_post_tags( $post->ID ),
-			'primary_tag' => $this->primaryTagRepo->getForPost( $post->ID ),
+			'primary_tag' => $this->primary_tag_repo->get_for_post( $post->ID ),
 		);
-		$this->renderPartial( 'admin/meta-box', $data );
+		$this->render_partial( 'admin/meta-box', $data );
 	}
 
 	public function save_primary_tag( $post_id ) {
-		// Check if our nonce is set.
-		if ( ! isset( $_POST[self::NONCE_KEY] )
-			|| ! wp_verify_nonce( $_POST[self::NONCE_KEY], 'save_primary_tag' ) )
-		{
+		/*
+		 * Check if our nonce is set.
+		 *
+		 * Sanitizes the post variable to pass code sniffer; not sure if
+		 * actually needed.
+		 */
+		if ( ! isset( $_POST[ self::NONCE_KEY ] )
+			|| ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST[ self::NONCE_KEY ] ) ), 'save_primary_tag' ) ) {
 			return;
 		}
 
@@ -68,10 +72,9 @@ class AdminController extends BaseController
 		}
 
 		// Sanitize user input.
-		$primary_tag = sanitize_text_field( $_POST['primary_tag'] );
+		$primary_tag = sanitize_text_field( wp_unslash( $_POST['primary_tag'] ) );
 
 		// Update the meta field in the database.
-		$this->primaryTagRepo->saveForPost( $post_id, $primary_tag );
+		$this->primary_tag_repo->save_for_post( $post_id, $primary_tag );
 	}
-
 }

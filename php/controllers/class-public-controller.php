@@ -1,6 +1,6 @@
 <?php namespace NeedBee\PrimaryTag\Controllers;
 
-class PublicController extends BaseController
+class Public_Controller extends Base_Controller
 {
 
 	public function add_styles() {
@@ -13,14 +13,13 @@ class PublicController extends BaseController
 	}
 
 	public function render_primary_tag( $content ) {
-		if( is_single() ) {
+		if ( is_single() ) {
 			$data = array(
-				'primary_tag' => $this->primaryTagRepo->getForPost( get_the_ID() ),
+				'primary_tag' => $this->primary_tag_repo->get_for_post( get_the_ID() ),
 			);
-			$template = $this->renderPartialToString( 'public/primary-tag', $data );
+			$template = $this->render_partial_to_string( 'public/primary-tag', $data );
 			$content = $template . $content;
 		}
 		return $content;
 	}
-
 }
