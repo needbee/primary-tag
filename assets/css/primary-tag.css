@@ -8,6 +8,7 @@
 .primary-tag-container {
   margin-bottom: 10px; }
 
+/* complex selector required to override a built-in border style */
 .entry-content a.primary-tag {
   background: #CCFFCC;
   border: solid 1px #66FF66;
