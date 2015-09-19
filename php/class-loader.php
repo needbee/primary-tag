@@ -16,8 +16,11 @@ class Loader
 
     public function init()
     {
-        $this->define_admin_hooks();
-        $this->define_public_hooks();
+        if( is_admin() ) {
+            $this->define_admin_hooks();
+        } else {
+            $this->define_public_hooks();
+        }
     }
 
     private function load_dependencies()
