@@ -21,6 +21,11 @@ class Admin_Controller extends Base_Controller
 	}
 
 	/**
+	 *
+	 * Ideally, this content would be added to the main Tags box instead of
+	 * creating a new one--but that's beyond my WordPress knowledge at the
+	 * moment.
+	 *
 	 * @uses add_meta_box()
 	 */
 	public function add_meta_box() {
