@@ -10,8 +10,8 @@
 	 * contain HTML.
 	 */
 	?>
-	<a href="<?php echo esc_url( site_url( 'tags/'.$data['primary_tag'].'/' ) ) ?>" class="primary-tag" rel="tag">
-	<?php echo esc_html( $data['primary_tag'] ) ?>
+	<a href="<?php echo esc_url( site_url( 'tag/'.$data['primary_tag']->slug.'/' ) ) ?>" class="primary-tag" rel="tag">
+	<?php echo esc_html( $data['primary_tag']->name ) ?>
 	</a>
 </div>
 <?php endif ?>

@@ -2,7 +2,15 @@
 	<select name="primary_tag">
 		<option value="">(none)</option>
 		<?php foreach ( $data['tags'] as $tag ) :  ?>
-		<option value="<?php echo esc_attr( $tag->name ) ?>" <?php if ( $tag->name === $data['primary_tag'] ) { echo 'selected'; } ?>>
+		<?php
+		/*
+		 * This page needs to operate only in terms of tag names, and ignore
+		 * tag IDs. This allows the JS to keep the list of tags updated based
+		 * only on the tag names that show up in the Tags meta box. Behind the
+		 * scenes, these names are mapped back to IDs.
+		 */
+		?>
+		<option value="<?php echo esc_attr( $tag->name ) ?>" <?php if ( false !== $data['primary_tag'] && ( $tag->name === $data['primary_tag']->name ) ) { echo 'selected'; } ?>>
 			<?php
 			/*
 			 * Escape to protect against cross-site scripting.

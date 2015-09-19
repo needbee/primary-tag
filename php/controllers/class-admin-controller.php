@@ -72,9 +72,9 @@ class Admin_Controller extends Base_Controller
 		}
 
 		// Sanitize user input.
-		$primary_tag = sanitize_text_field( wp_unslash( $_POST['primary_tag'] ) );
+		$primary_tag_name = sanitize_text_field( wp_unslash( $_POST['primary_tag'] ) );
 
 		// Update the meta field in the database.
-		$this->primary_tag_repo->save_for_post( $post_id, $primary_tag );
+		$this->primary_tag_repo->save_for_post( $post_id, $primary_tag_name );
 	}
 }
