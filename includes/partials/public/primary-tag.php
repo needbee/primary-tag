@@ -1,5 +1,6 @@
 <?php if( $primary_tag ): ?>
 <div class="primary-tag">
+    <span class="screen-reader-text">Primary Tag</span>
     <?php
     /*
      * Escape to protect against cross-site scripting.
@@ -9,6 +10,8 @@
      * contain HTML.
      */
     ?>
+    <a href="<?php echo site_url('tags/'+$primary_tag) ?>" class="primary-tag-link" rel="tag">
     <?php echo sanitize_text_field($primary_tag) ?>
+    </a>
 </div>
 <?php endif ?>

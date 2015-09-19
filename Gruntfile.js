@@ -43,7 +43,7 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		
+
 		sass:   {
 			options: {
 				precision: 2,
@@ -55,21 +55,16 @@ module.exports = function( grunt ) {
 				}
 			}
 		},
-		
-		
+
+
 		postcss: {
 			dist: {
-				options: {
-					processors: [
-						require('autoprefixer')({browsers: 'last 2 versions'})
-					]
-				},
-				files: { 
+				files: {
 					'assets/css/primary-tag.css': [ 'assets/css/primary-tag.css' ]
 				}
 			}
 		},
-		
+
 		cssmin: {
 			options: {
 				banner: '/*! <%= pkg.title %> - v<%= pkg.version %>\n' +
@@ -96,9 +91,9 @@ module.exports = function( grunt ) {
 					livereload: true
 				}
 			},
-			styles: { 
+			styles: {
 				files: ['assets/css/sass/**/*.scss'],
-				tasks: ['sass', 'autoprefixer', 'cssmin'],
+				tasks: ['sass', 'cssmin'],
 				options: {
 					debounceDelay: 500
 				}
@@ -180,9 +175,9 @@ module.exports = function( grunt ) {
 	require('load-grunt-tasks')(grunt);
 
 	// Register tasks
-	
+
 	grunt.registerTask( 'css', ['sass', 'postcss', 'cssmin'] );
-	
+
 
 	grunt.registerTask( 'js', ['jshint', 'concat', 'uglify'] );
 
