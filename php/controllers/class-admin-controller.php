@@ -56,19 +56,8 @@ class AdminController extends BaseController
         }
 
         // Check the user's permissions.
-        if ( isset( $_POST['post_type'] ) && 'page' == $_POST['post_type'] ) {
-
-            if ( ! current_user_can( 'edit_page', $post_id ) ) {
-                pt_write_log('d');
-                return;
-            }
-
-        } else {
-
-            if ( ! current_user_can( 'edit_post', $post_id ) ) {
-                pt_write_log('e');
-                return;
-            }
+        if ( ! current_user_can( 'edit_post', $post_id ) ) {
+            return;
         }
 
         /* OK, it's safe for us to save the data now. */
