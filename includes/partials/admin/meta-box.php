@@ -1,8 +1,17 @@
+<?php
+/**
+ * Renders the meta box for choosing the primary tag.
+ *
+ * @package NeedBee\Primary_Tag
+ */
+
+?>
 <div id="primary-tag">
 	<select name="primary_tag">
-		<option value="">(<?php esc_html_e('none') ?>)</option>
+		<option value="">(<?php esc_html_e( 'none' ) ?>)</option>
 		<?php foreach ( $data['tags'] as $tag ) :  ?>
 		<?php
+
 		/*
 		 * This page needs to operate only in terms of tag names, and ignore
 		 * tag IDs. This allows the JS to keep the list of tags updated based
@@ -12,6 +21,7 @@
 		?>
 		<option value="<?php echo esc_attr( $tag->name ) ?>" <?php if ( false !== $data['primary_tag'] && ( $tag->name === $data['primary_tag']->name ) ) { echo 'selected'; } ?>>
 			<?php
+
 			/*
 			 * Escape to protect against cross-site scripting.
 			 *
@@ -25,5 +35,5 @@
 		<?php endforeach ?>
 	</select>
 
-	<?php esc_html_e('The primary tag will show at the top of the post page.') ?>
+	<?php esc_html_e( 'The primary tag will show at the top of the post page.' ) ?>
 </div><!-- #primary-tag -->

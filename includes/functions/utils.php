@@ -1,4 +1,10 @@
 <?php
+/**
+ * Provides miscellaneous utility functions for the plugin.
+ *
+ * @package  NeedBee\Primary_Tag\Utils
+ */
+
 namespace NeedBee\Primary_Tag\Utils;
 
 /**

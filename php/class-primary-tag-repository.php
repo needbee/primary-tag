@@ -1,5 +1,20 @@
-<?php namespace NeedBee\Primary_Tag;
+<?php
+/**
+ * The Primary_Tag_Repository class.
+ *
+ * @package NeedBee\Primary_Tag\Controllers
+ */
 
+namespace NeedBee\Primary_Tag;
+
+/**
+ * Provides access to the primary tag data for a post.
+ *
+ * This is wrapped in a class to isolate the implementation from the rest of
+ * the app. This already came in handy when I had to refactor it from storing
+ * the tag name to storing the tag ID instead. This class isolated those changes
+ * from the rest of the app.
+ */
 class Primary_Tag_Repository {
 
 	const PRIMARY_TAG_KEY = 'primary_tag';

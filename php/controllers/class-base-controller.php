@@ -1,7 +1,20 @@
-<?php namespace NeedBee\Primary_Tag\Controllers;
+<?php
+/**
+ * The Base_Controller class.
+ *
+ * @package NeedBee\Primary_Tag\Controllers
+ */
+
+namespace NeedBee\Primary_Tag\Controllers;
 
 use NeedBee\Primary_Tag\Primary_Tag_Repository;
 
+/**
+ * A base class providing support methods and dependencies for controllers.
+ *
+ * Provides the tag repository for data retrieval, and partial-rendering
+ * methods for user interface.
+ */
 class Base_Controller
 {
 

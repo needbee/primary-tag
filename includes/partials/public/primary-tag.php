@@ -1,7 +1,16 @@
-<?php if ( $data['primary_tag'] ) :  ?>
+<?php
+/**
+ * Renders the primary tag to the page.
+ *
+ * @package NeedBee\Primary_Tag
+ */
+
+?>
+<?php if ( $data['primary_tag'] ) : ?>
 <div class="primary-tag-container">
 	<span class="screen-reader-text">Primary Tag</span>
 	<?php
+
 	/*
 	 * Escape to protect against cross-site scripting.
 	 *

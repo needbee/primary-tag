@@ -1,8 +1,17 @@
-<?php namespace NeedBee\Primary_Tag\Controllers;
+<?php
+/**
+ * The Public_Controller class.
+ *
+ * @package NeedBee\Primary_Tag\Controllers
+ */
+
+namespace NeedBee\Primary_Tag\Controllers;
 
 /**
+ * Provides all plugin functionality for admin screens.
  *
- * @see https://codex.wordpress.org/Function_Reference/add_meta_box
+ * This includes displaying the primary tag picker meta box and saving the
+ * primary tag when chosen from that interface.
  */
 class Admin_Controller extends Base_Controller
 {

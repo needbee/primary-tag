@@ -1,5 +1,18 @@
-<?php namespace NeedBee\Primary_Tag\Controllers;
+<?php
+/**
+ * The Public_Controller class.
+ *
+ * @package NeedBee\Primary_Tag\Controllers
+ */
 
+namespace NeedBee\Primary_Tag\Controllers;
+
+/**
+ * Provides all plugin functionality for public screens.
+ *
+ * This includes displaying and styling the primary tag on the single post
+ * screen.
+ */
 class Public_Controller extends Base_Controller
 {
 

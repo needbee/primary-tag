@@ -1,4 +1,10 @@
 <?php
+/**
+ * Core plugin setup code from generator-wp-make
+ *
+ * @package  NeedBee\Primary_Tag\Utils
+ */
+
 namespace NeedBee\Primary_Tag\Core;
 
 /**
@@ -46,8 +52,8 @@ function i18n() {
  */
 function init() {
 	require_once plugin_dir_path( dirname( __FILE__ ) ) . 'functions/utils.php';
-	require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'php/class-loader.php';
-	$loader = new \NeedBee\Primary_Tag\Loader;
+	require_once plugin_dir_path( dirname( dirname( __FILE__ ) ) ) . 'php/class-manager.php';
+	$loader = new \NeedBee\Primary_Tag\Manager;
 	$loader->init();
 
 	do_action( 'primarytag_init' );
@@ -62,7 +68,7 @@ function init() {
  * @return void
  */
 function activate() {
-	// First load the init scripts in case any rewrite functionality is being loaded
+	// First load the init scripts in case any rewrite functionality is being loaded.
 	init();
 	flush_rewrite_rules();
 }

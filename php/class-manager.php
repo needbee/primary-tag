@@ -1,8 +1,21 @@
-<?php namespace NeedBee\Primary_Tag;
+<?php
+/**
+ * The Manager class.
+ *
+ * @package NeedBee\Primary_Tag
+ */
+
+namespace NeedBee\Primary_Tag;
 
 use NeedBee\Primary_Tag\Controllers\Admin_Controller;
 use NeedBee\Primary_Tag\Controllers\Public_Controller;
 
+/**
+ * Manages setup of the plugin.
+ *
+ * This includes loading classes, instantiating and wiring together objects,
+ * and setting up actions and filters.
+ */
 class Manager
 {
 
