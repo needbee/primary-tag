@@ -40,14 +40,14 @@ class Loader
     private function define_admin_hooks()
     {
         $admin = new AdminController( $this->version, new PrimaryTagRepository );
-        add_filter( 'add_meta_boxes', array($admin, 'add_meta_box') );
-        add_filter( 'save_post', array($admin, 'save_primary_tag') );
+        add_action( 'add_meta_boxes', array($admin, 'add_meta_box') );
+        add_action( 'save_post', array($admin, 'save_primary_tag') );
     }
 
     private function define_public_hooks()
     {
         $public = new PublicController( $this->version, new PrimaryTagRepository );
-        add_filter( 'wp_enqueue_scripts', array($public, 'add_styles') );
+        add_action( 'wp_enqueue_scripts', array($public, 'add_styles') );
         add_filter( 'the_content', array($public, 'render_primary_tag') );
     }
 
