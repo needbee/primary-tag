@@ -9,9 +9,9 @@
   margin-bottom: 10px; }
 
 .entry-content a.primary-tag {
+  background: #CCFFCC;
   border: solid 1px #66FF66;
   border-radius: 5px;
-  background: #CCFFCC;
   font-size: 16px;
   padding: 2px 10px; }
   .entry-content a.primary-tag:hover {
