@@ -59,9 +59,7 @@
 		 * this does is refresh the tag list, it's not a big problem to do it for
 		 * _any_ click in the checklist area.
 		 */
-		jQuery('.tagchecklist').on('click', function(evt) {
-			updatePrimaryTagDropdownOnDelay();
-		});
+		jQuery('.tagchecklist').on('click', updatePrimaryTagDropdownOnDelay );
 	});
 
 } )( this );
