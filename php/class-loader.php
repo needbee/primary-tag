@@ -22,10 +22,19 @@ class Loader
 
     private function load_dependencies()
     {
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'php/controllers/class-base-controller.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'php/controllers/class-admin-controller.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'php/controllers/class-public-controller.php';
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'php/class-primary-tag-repository.php';
+        $this->load_classes(array(
+            'controllers/class-base-controller',
+            'controllers/class-admin-controller',
+            'controllers/class-public-controller',
+            'class-primary-tag-repository',
+        ));
+    }
+
+    private function load_classes( array $classes ) {
+        foreach( $classes as $class ) {
+            require_once plugin_dir_path( dirname( __FILE__ ) )
+                . 'php/'.$class.'.php';
+        }
     }
 
     private function define_admin_hooks()
