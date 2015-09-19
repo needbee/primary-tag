@@ -7,6 +7,8 @@
 class AdminController extends BaseController
 {
 
+    const NONCE_KEY = 'primary_tag_meta_box_nonce';
+
     public function test() {
         echo '<div>Hello Primary Tag Admin!</div>';
     }
@@ -31,7 +33,7 @@ class AdminController extends BaseController
     }
 
     public function render_meta_box( $post ) {
-        wp_nonce_field( 'save_primary_tag', 'primary_tag_meta_box_nonce' );
+        wp_nonce_field( 'save_primary_tag', self::NONCE_KEY );
 
         $data = array(
             'tags' => wp_get_post_tags( $post->ID ),
@@ -42,14 +44,9 @@ class AdminController extends BaseController
 
     public function save_primary_tag( $post_id ) {
         // Check if our nonce is set.
-        if ( ! isset( $_POST['primary_tag_meta_box_nonce'] ) ) {
-            pt_write_log('a');
-            return;
-        }
-
-        // Verify that the nonce is valid.
-        if ( ! wp_verify_nonce( $_POST['primary_tag_meta_box_nonce'], 'save_primary_tag' ) ) {
-            pt_write_log('b');
+        if ( ! isset( $_POST[self::NONCE_KEY] )
+            || ! wp_verify_nonce( $_POST[self::NONCE_KEY], 'save_primary_tag' ) )
+        {
             return;
         }
 
