@@ -8,7 +8,7 @@
 namespace NeedBee\Primary_Tag\Core;
 
 /**
- * Default setup routine
+ * Default setup routine.
  *
  * @uses add_action()
  * @uses do_action()
@@ -60,7 +60,7 @@ function init() {
 }
 
 /**
- * Activate the plugin
+ * Activate the plugin.
  *
  * @uses init()
  * @uses flush_rewrite_rules()
@@ -74,7 +74,7 @@ function activate() {
 }
 
 /**
- * Deactivate the plugin
+ * Deactivate the plugin.
  *
  * Uninstall routines should be in uninstall.php
  *
