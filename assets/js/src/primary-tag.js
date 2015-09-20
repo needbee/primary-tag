@@ -9,6 +9,15 @@
 ( function( window, undefined ) {
 	'use strict';
 
+	/**
+	 * Updates the primary tag dropdown to match all current tags for the post.
+	 *
+	 * This is fired on a 100 ms delay to allow time for WordPress's JS to
+	 * update the list of tags shown. A better future implementation would
+	 * actually hook into WordPress's JS or operate in response to DOM changes.
+	 *
+	 * @global {Object} jQuery the jQuery object.
+	 */
 	function updatePrimaryTagDropdownOnDelay() {
 		setTimeout( function() {
 			var $select = jQuery( '#primary-tag select' );
@@ -35,6 +44,16 @@
 		}, 100 );
 	}
 
+	/**
+	 * Gets the tags currently on the post.
+	 *
+	 * Currently implemented by looking in the DOM. A better future
+	 * implementation would hook into WordPress's JS to get the list, if
+	 * possible.
+	 *
+	 * @global {Object} jQuery the jQuery object.
+	 * @return {string[]} the current tags
+	 */
 	function getTags() {
 		var tags = jQuery( 'div.tagchecklist span' )
 			.map( function( i, elm ) {
@@ -52,6 +71,7 @@
 
 		// hitting return while in the add tag box
 		jQuery( '#new-tag-post_tag' ).keyup( function( evt ) {
+			// return key
 			if ( 13 === evt.keyCode ) {
 				updatePrimaryTagDropdownOnDelay();
 			}
