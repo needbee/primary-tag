@@ -17,6 +17,10 @@ class Public_Controller extends Base_Controller
 {
 
 	/**
+	 * Sets up CSS needed for public features.
+	 *
+	 * @return void
+	 *
 	 * @uses plugin_dir_url()
 	 * @uses wp_enqueue_style()
 	 */
@@ -30,6 +34,11 @@ class Public_Controller extends Base_Controller
 	}
 
 	/**
+	 * Renders the primary tag at the top of the post content.
+	 *
+	 * @param string $content the post content.
+	 * @return the content with the primary tag added
+	 *
 	 * @uses is_single()
 	 */
 	public function render_primary_tag( $content ) {

@@ -8,8 +8,13 @@
 namespace NeedBee\Primary_Tag\Utils;
 
 /**
+ * Writes a message to the debug.log file, respecting the WP_DEBUG setting.
+ *
+ * @param string $log the message to write to the log file.
+ *
  * @uses error_log()
  * @uses WP_DEBUG
+ * @see  http://www.stumiller.me/sending-output-to-the-wordpress-debug-log/
  */
 function write_log( $log ) {
 	if ( true === WP_DEBUG ) {

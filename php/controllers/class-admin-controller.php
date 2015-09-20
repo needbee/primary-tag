@@ -19,7 +19,10 @@ class Admin_Controller extends Base_Controller
 	const NONCE_KEY = 'primary_tag_meta_box_nonce';
 
 	/**
+	 * Sets up JavaScript needed for admin features.
+	 *
 	 * @uses wp_enqueue_script()
+	 * @return void
 	 */
 	public function add_scripts() {
 		wp_enqueue_script( 'primary-tag',
@@ -30,12 +33,14 @@ class Admin_Controller extends Base_Controller
 	}
 
 	/**
+	 * Hooks up the Primary Tag picker to display as a meta box.
 	 *
 	 * Ideally, this content would be added to the main Tags box instead of
 	 * creating a new one--but that's beyond my WordPress knowledge at the
 	 * moment.
 	 *
 	 * @uses add_meta_box()
+	 * @return void
 	 */
 	public function add_meta_box() {
 		add_meta_box(
@@ -49,6 +54,11 @@ class Admin_Controller extends Base_Controller
 	}
 
 	/**
+	 * Displays the Primary Tag picker as a meta box below the editor.
+	 *
+	 * @param WP_Post $post the post being edited.
+	 * @return void
+	 *
 	 * @uses wp_get_post_tags()
 	 * @uses wp_nonce_field()
 	 */
@@ -63,7 +73,15 @@ class Admin_Controller extends Base_Controller
 	}
 
 	/**
+	 * Saves the submitted primary tag field for a post.
+	 *
+	 * This includes removing the primary tag if an empty one was submitted. It
+	 * also includes all necessary safety and security checks.
+	 *
+	 * @param integer $post_id the post being saved.
 	 * @global $_POST the post data
+	 * @return void
+	 *
 	 * @uses current_user_can()
 	 * @uses sanitize_text_field()
 	 * @uses wp_unslash()

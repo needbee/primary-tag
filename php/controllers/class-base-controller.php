@@ -18,22 +18,59 @@ use NeedBee\Primary_Tag\Primary_Tag_Repository;
 class Base_Controller
 {
 
+	/**
+	 * Used for cache-busting frontend assets.
+	 *
+	 * @var string $version the version of the plugin.
+	 */
 	protected $version;
 
+	/**
+	 * Used for cache-busting frontend assets.
+	 *
+	 * @var NeedBee\Primary_Tag\Primary_Tag_Repository $primary_tag_repo the object for persisting the primary tag.
+	 */
 	protected $primary_tag_repo;
 
+	/**
+	 * Constructs a controller with dependencies.
+	 *
+	 * @param string                                     $version the version of the plugin.
+	 * @param NeedBee\Primary_Tag\Primary_Tag_Repository $primary_tag_repo the object for persisting the primary tag.
+	 */
 	public function __construct( $version, Primary_Tag_Repository $primary_tag_repo ) {
 		$this->version = $version;
 		$this->primary_tag_repo = $primary_tag_repo;
 	}
 
 	/**
+	 * Outputs a partial to the browser.
+	 *
+	 * Wrapped in a method to avoid having to duplicate file path logic, and in
+	 * case we switch template engines to Twig or something in the future.
+	 *
+	 * @param string $path the path to the partial file, not including '/includes/partials/' or '.php'.
+	 * @param array  $data the data to pass to the partial, accessible in it under the $data variable.
+	 * @return void
+	 *
 	 * @uses plugin_dir_path()
 	 */
 	protected function render_partial( $path, $data ) {
 		include plugin_dir_path( __FILE__ ) . '../../includes/partials/' . $path . '.php';
 	}
 
+	/**
+	 * Renders a partial and returns it.
+	 *
+	 * Wrapped in a method to hide the ugly output-buffer logic, and in case we
+	 * switch template engines to Twig or something in the future.
+	 *
+	 * @param string $path the path to the partial file, not including /includes/partials/ or .php.
+	 * @param array  $data the data to pass to the partial, accessible in it under the $data variable.
+	 * @return string the rendered partial
+	 *
+	 * @uses plugin_dir_path()
+	 */
 	protected function render_partial_to_string( $path, $data ) {
 		ob_start();
 		$this->render_partial( $path, $data );

@@ -17,9 +17,18 @@ namespace NeedBee\Primary_Tag;
  */
 class Primary_Tag_Repository {
 
+	/**
+	 * The post meta key to store the primary tag under.
+	 *
+	 * @var string PRIMARY_TAG_KEY The post meta key to store the primary tag under.
+	 */
 	const PRIMARY_TAG_KEY = 'primary_tag';
 
 	/**
+	 * Gets the primary tag object for a post.
+	 *
+	 * @param integer $post_id the ID of the post.
+	 * @return Term the primary tag object.
 	 * @uses get_post_meta()
 	 * @uses get_term()
 	 */
@@ -29,6 +38,12 @@ class Primary_Tag_Repository {
 	}
 
 	/**
+	 * Saves the primary tag for a post.
+	 *
+	 * @param integer $post_id the ID of the post.
+	 * @param string  $primary_tag_name the name of the primary tag to save.
+	 * @return void
+	 *
 	 * @uses delete_post_meta()
 	 * @uses get_term_by()
 	 * @uses update_post_meta()
