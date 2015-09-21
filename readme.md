@@ -1,12 +1,12 @@
 === Primary Tag ===
 
-Contributors:      Josh Justice
-Tags: 
-Requires at least: 4.1.1
-Tested up to:      4.1.1
-Stable tag:        0.1.0
-License:           GPLv2 or later
-License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+- Contributors:      Josh Justice
+- Tags: 
+- Requires at least: 4.1.1
+- Tested up to:      4.1.1
+- Stable tag:        0.1.0
+- License:           GPLv2 or later
+- License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
 Displays one of a post's tags at the top of the post, as the "primary" tag.
 
