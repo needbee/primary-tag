@@ -14,6 +14,9 @@ namespace NeedBee\Primary_Tag;
  * the app. This already came in handy when I had to refactor it from storing
  * the tag name to storing the tag ID instead. This class isolated those changes
  * from the rest of the app.
+ *
+ * This class could likely be optimized to minimize DB hits, but I didn't want
+ * to do so prematurely without knowing what environment it will be used in.
  */
 class Primary_Tag_Repository {
 
