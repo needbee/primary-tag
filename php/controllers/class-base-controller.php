@@ -44,6 +44,18 @@ class Base_Controller
 	}
 
 	/**
+	 * Returns the path to a file in the assets directory.
+	 *
+	 * Wrapped in a method to avoid having to duplicate file path logic.
+	 *
+	 * @param string $path the path to the asset starting from the assets directory, including full file name
+	 * @return string the absolute asset path for wp_enqueue_style() or wp_enqueue_script()
+	 */
+	protected function asset_path( $path ) {
+		return plugin_dir_url( __FILE__ ) . '../../assets/' . $path;
+	}
+
+	/**
 	 * Outputs a partial to the browser.
 	 *
 	 * Wrapped in a method to avoid having to duplicate file path logic, and in

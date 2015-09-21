@@ -27,7 +27,7 @@ class Public_Controller extends Base_Controller
 	public function add_styles() {
 		wp_enqueue_style(
 			'primary-tag',
-			plugin_dir_url( __FILE__ ) . '../../assets/css/primary-tag.min.css',
+			$this->asset_path('css/primary-tag.min.css'),
 			array(),
 			$this->version
 		);

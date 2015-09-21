@@ -26,7 +26,7 @@ class Admin_Controller extends Base_Controller
 	 */
 	public function add_scripts() {
 		wp_enqueue_script( 'primary-tag',
-			plugin_dir_url( __FILE__ ) . '../../assets/js/src/primary-tag.js',
+			$this->asset_path( 'js/src/primary-tag.js' ),
 			array(),
 			$this->version
 		);
