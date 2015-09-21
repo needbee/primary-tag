@@ -22,8 +22,8 @@ After this plugin is installed, when editing a post, you will see a Primary Tag 
 
 == Screenshots ==
 
-Primary tag on a post: screenshots/public.png
-Admin interface: screenshots/admin.png
+- Primary tag on a post: screenshots/public.png
+- Admin interface: screenshots/admin.png
 
 == Changelog ==
 
