@@ -20,7 +20,7 @@
 	 */
 	function updatePrimaryTagDropdownOnDelay() {
 		setTimeout( function() {
-			var $select = jQuery( '#primary-tag select' );
+			var $select = jQuery( '#primary-tag' );
 			var currentTag = $select.val();
 
 			// remove all tag options

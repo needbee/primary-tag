@@ -6,8 +6,8 @@
  */
 
 ?>
-<div id="primary-tag">
-	<select name="primary_tag">
+<div id="primary-tag-container">
+	<select name="primary_tag" id="primary-tag">
 		<option value="">(<?php esc_html_e( 'none' ) ?>)</option>
 		<?php foreach ( $data['tags'] as $tag ) :  ?>
 		<?php
