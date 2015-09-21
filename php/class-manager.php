@@ -59,7 +59,7 @@ class Manager
 	 * @uses add_action()
 	 * @uses add_filter()
 	 */
-	private function define_admin_hooks() {
+	private function init_admin() {
 		$admin = new Admin_Controller( $this->version, new Primary_Tag_Repository );
 		add_action( 'admin_enqueue_scripts', array( $admin, 'add_scripts' ) );
 		add_action( 'add_meta_boxes', array( $admin, 'add_meta_box' ) );
@@ -74,7 +74,7 @@ class Manager
 	 * @uses add_action()
 	 * @uses add_filter()
 	 */
-	private function define_public_hooks() {
+	private function init_public() {
 		$public = new Public_Controller( $this->version, new Primary_Tag_Repository );
 		add_action( 'wp_enqueue_scripts', array( $public, 'add_styles' ) );
 		add_filter( 'the_content', array( $public, 'render_primary_tag' ) );
