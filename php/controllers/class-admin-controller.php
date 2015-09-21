@@ -90,7 +90,7 @@ class Admin_Controller extends Base_Controller
 	 */
 	public function save_primary_tag( $post_id ) {
 		/*
-		 * Check if our nonce is set.
+		 * Check if our nonce is set correctly.
 		 *
 		 * Sanitizes the post variable to pass code sniffer; not sure if
 		 * actually needed.
@@ -100,19 +100,17 @@ class Admin_Controller extends Base_Controller
 			return;
 		}
 
-		// If this is an autosave, our form has not been submitted, so we don't want to do anything.
+		// Don't save the primary tag during an autosave.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return;
 		}
 
-		// Check the user's permissions.
+		// Don't allow the user to save primary tag if user can't edit the post.
 		if ( ! current_user_can( 'edit_posts', $post_id ) ) {
 			return;
 		}
 
-		/* OK, it's safe for us to save the data now. */
-
-		// Make sure that it is set.
+		// Make sure that it is set. Even an empty string counds.
 		if ( ! isset( $_POST['primary_tag'] ) ) {
 			return;
 		}
